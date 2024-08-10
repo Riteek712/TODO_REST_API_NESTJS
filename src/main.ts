@@ -10,7 +10,7 @@ async function bootstrap() {
 
   app.enableCors({
     origin: 'http://localhost:5173', // Replace with your frontend's origin
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true, // If you need to send cookies with the request
   });
   app.useGlobalPipes(new ValidationPipe())
