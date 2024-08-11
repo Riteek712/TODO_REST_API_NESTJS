@@ -46,11 +46,12 @@ export class TodoService {
     })
   }
 
-  async update(id: number, updateTodoDto: UpdateTodoDto) {
+  async update(id: number,userEmail: string, updateTodoDto: UpdateTodoDto) {
     
     return this.databaseService.todo.update({
       where:{
-        id:id
+        id:id,
+        userEmail:userEmail
       },
       data: updateTodoDto
     });
