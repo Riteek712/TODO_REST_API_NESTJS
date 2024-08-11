@@ -37,27 +37,31 @@ export class TodoService {
     });
   }
 
-  async findOne(id: number) {
+  async findOne(id: number, userEmail: string) {
     return this.databaseService.todo.findFirst({
       where:{
-        id: id
+        id: id,
+        userEmail: userEmail
       }
     })
   }
 
-  async update(id: number, updateTodoDto: UpdateTodoDto) {
+  async update(id: number,userEmail: string, updateTodoDto: UpdateTodoDto) {
+    
     return this.databaseService.todo.update({
       where:{
-        id:id
+        id:id,
+        userEmail:userEmail
       },
       data: updateTodoDto
     });
   }
 
-  async remove(id: number) {
+  async remove(id: number, userEmail: string) {
     return this.databaseService.todo.delete({
       where:{
-        id: id
+        id: id,
+        userEmail: userEmail
       }
     });
   }
