@@ -59,7 +59,9 @@ export class TodoController {
   @UseGuards(JwtAuthGuard)
   @ApiOperation({ description:'To delete a specific the user task.', summary: 'To delete a specific the user task.' })
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.todoService.remove(+id);
+  remove(
+    @Param('id') id: string,
+  @UserEmail() userEmail: string) {
+    return this.todoService.remove(+id, userEmail);
   }
 }

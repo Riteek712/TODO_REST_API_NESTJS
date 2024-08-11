@@ -57,10 +57,11 @@ export class TodoService {
     });
   }
 
-  async remove(id: number) {
+  async remove(id: number, userEmail: string) {
     return this.databaseService.todo.delete({
       where:{
-        id: id
+        id: id,
+        userEmail: userEmail
       }
     });
   }
