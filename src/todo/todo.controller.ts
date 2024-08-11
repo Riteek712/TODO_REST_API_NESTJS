@@ -36,8 +36,11 @@ export class TodoController {
   @UseGuards(JwtAuthGuard)
   @ApiOperation({ description:'To get a specific the user task.', summary: 'To get a specific the user task.' })
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.todoService.findOne(+id);
+  findOne(
+    @Param('id') id: string,
+    @UserEmail()
+    userEmail: string) {
+    return this.todoService.findOne(+id, userEmail);
   }
 
   @ApiBearerAuth()
